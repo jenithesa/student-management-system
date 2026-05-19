@@ -52,7 +52,7 @@ student-management-system/
 
 1. Clone the repository
 
-git clone https://github.com/your-username/student-management-system.git
+git clone https://github.com/jenithesa/student-management-system.git
 
 2. Open the project folder
 
