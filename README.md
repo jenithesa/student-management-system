@@ -1,5 +1,3 @@
-# student-management-system
-
 # Student Management System
 
 A web-based Student Management System developed using Python, Flask, HTML, CSS, SQLite, and SQL.
