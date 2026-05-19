@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#1e3a8a,#2563eb);
+            overflow:hidden;
+        }
+
+        /* Background Design */
+
+        .circle1,
+        .circle2{
+            position:absolute;
+            border-radius:50%;
+            background:rgba(255,255,255,0.1);
+        }
+
+        .circle1{
+            width:300px;
+            height:300px;
+            top:-100px;
+            left:-100px;
+        }
+
+        .circle2{
+            width:250px;
+            height:250px;
+            bottom:-80px;
+            right:-80px;
+        }
+
+        /* Reset Container */
+
+        .reset-container{
+            width:400px;
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(15px);
+            border:1px solid rgba(255,255,255,0.2);
+            border-radius:20px;
+            padding:40px 30px;
+            box-shadow:0 8px 30px rgba(0,0,0,0.2);
+            position:relative;
+            z-index:10;
+            animation:fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .reset-container h2{
+            text-align:center;
+            color:white;
+            font-size:32px;
+            margin-bottom:10px;
+        }
+
+        .reset-container p{
+            text-align:center;
+            color:#dbeafe;
+            margin-bottom:30px;
+            font-size:14px;
+        }
+
+        /* Input Box */
+
+        .input-box{
+            margin-bottom:20px;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:14px 15px;
+            border:none;
+            outline:none;
+            border-radius:12px;
+            background:rgba(255,255,255,0.2);
+            color:white;
+            font-size:15px;
+        }
+
+        .input-box input::placeholder{
+            color:#e0e7ff;
+        }
+
+        /* Button */
+
+        .reset-btn{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:12px;
+            background:white;
+            color:#1e3a8a;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .reset-btn:hover{
+            background:#dbeafe;
+            transform:translateY(-2px);
+        }
+
+        /* Bottom Link */
+
+        .bottom-link{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .bottom-link a{
+            text-decoration:none;
+            color:white;
+            font-size:14px;
+            transition:0.3s;
+        }
+
+        .bottom-link a:hover{
+            color:#dbeafe;
+        }
+
+        /* Responsive */
+
+        @media(max-width:480px){
+
+            .reset-container{
+                width:90%;
+                padding:30px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+
+    <!-- Reset Password Form -->
+
+    <div class="reset-container">
+
+        <h2>Reset Password</h2>
+
+        <p>Update your account password securely</p>
+
+        <form method="POST">
+
+            <div class="input-box">
+                <input type="email"
+                       name="email"
+                       placeholder="Enter Email"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <input type="password"
+                       name="password"
+                       placeholder="Enter New Password"
+                       required>
+            </div>
+
+            <button type="submit" class="reset-btn">
+                Update Password
+            </button>
+
+        </form>
+
+        <div class="bottom-link">
+            <a href="/login">Back to Login</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

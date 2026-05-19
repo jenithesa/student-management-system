@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#eef2ff;
+            overflow-x:hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar{
+            width:100%;
+            padding:18px 60px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:linear-gradient(90deg,#1e3a8a,#2563eb);
+            box-shadow:0 4px 10px rgba(0,0,0,0.15);
+            position:sticky;
+            top:0;
+            z-index:100;
+        }
+
+        .logo{
+            color:white;
+            font-size:30px;
+            font-weight:700;
+            letter-spacing:1px;
+        }
+
+        .navbar ul{
+            display:flex;
+            list-style:none;
+            gap:25px;
+        }
+
+        .navbar ul li a{
+            text-decoration:none;
+            color:white;
+            font-size:16px;
+            transition:0.3s;
+        }
+
+        .navbar ul li a:hover{
+            color:#dbeafe;
+        }
+
+        .login-btn{
+            text-decoration:none;
+            background:white;
+            color:#1e3a8a;
+            padding:10px 22px;
+            border-radius:30px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .login-btn:hover{
+            background:#dbeafe;
+            transform:scale(1.05);
+        }
+
+        /* ================= HERO SECTION ================= */
+
+        .hero{
+            min-height:90vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:60px;
+            gap:50px;
+            flex-wrap:wrap;
+        }
+
+        .hero-text{
+            flex:1;
+            min-width:300px;
+        }
+
+        .hero-text h1{
+            font-size:55px;
+            color:#1e3a8a;
+            margin-bottom:20px;
+            line-height:1.2;
+        }
+
+        .hero-text p{
+            font-size:18px;
+            color:#444;
+            line-height:1.8;
+            margin-bottom:30px;
+        }
+
+        .hero-buttons{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            text-decoration:none;
+            padding:14px 30px;
+            border-radius:40px;
+            font-size:16px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .btn-primary{
+            background:#2563eb;
+            color:white;
+        }
+
+        .btn-primary:hover{
+            background:#1d4ed8;
+            transform:translateY(-3px);
+        }
+
+        .btn-secondary{
+            border:2px solid #2563eb;
+            color:#2563eb;
+            background:white;
+        }
+
+        .btn-secondary:hover{
+            background:#2563eb;
+            color:white;
+        }
+
+        /* Hero Image */
+
+        .hero-image{
+            flex:1;
+            min-width:300px;
+            text-align:center;
+        }
+
+        .hero-image img{
+            width:100%;
+            max-width:500px;
+            animation:float 3s ease-in-out infinite;
+        }
+
+        @keyframes float{
+            0%{
+                transform:translateY(0px);
+            }
+            50%{
+                transform:translateY(-15px);
+            }
+            100%{
+                transform:translateY(0px);
+            }
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features{
+            padding:80px 60px;
+            text-align:center;
+        }
+
+        .features h2{
+            font-size:40px;
+            color:#1e3a8a;
+            margin-bottom:50px;
+        }
+
+        .feature-boxes{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .feature{
+            background:white;
+            padding:35px 25px;
+            border-radius:20px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .feature:hover{
+            transform:translateY(-10px);
+        }
+
+        .feature i{
+            font-size:50px;
+            color:#2563eb;
+            margin-bottom:20px;
+        }
+
+        .feature h3{
+            margin-bottom:15px;
+            color:#1e3a8a;
+        }
+
+        .feature p{
+            color:#555;
+            line-height:1.6;
+        }
+
+        /* ================= INSTRUCTIONS ================= */
+
+        .instructions{
+            padding:80px 60px;
+        }
+
+        .instruction-card{
+            background:white;
+            border-radius:20px;
+            padding:40px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .instruction-card h2{
+            color:#1e3a8a;
+            margin-bottom:25px;
+            text-align:center;
+            font-size:38px;
+        }
+
+        .instruction-list{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:20px;
+        }
+
+        .instruction{
+            background:#eff6ff;
+            padding:18px;
+            border-left:5px solid #2563eb;
+            border-radius:10px;
+            font-size:16px;
+            color:#333;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer{
+            background:#1e3a8a;
+            color:white;
+            text-align:center;
+            padding:25px;
+            margin-top:60px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:768px){
+
+            .navbar{
+                padding:15px 20px;
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .navbar ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero{
+                padding:40px 20px;
+            }
+
+            .hero-text h1{
+                font-size:40px;
+            }
+
+            .features,
+            .instructions{
+                padding:60px 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">StudentMS</div>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Students</a></li>
+            <li><a href="#">Results</a></li>
+            <li><a href="#">Attendance</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <a href="/login" class="login-btn">Login</a>
+
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>Modern Student Management System</h1>
+
+            <p>
+                Manage student records, attendance, semester marks,
+                academic performance, and communication in one smart
+                platform designed for colleges and universities.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#" class="btn btn-primary">Get Started</a>
+
+                <a href="#" class="btn btn-secondary">Learn More</a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Student">
+
+        </div>
+
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <h2>Our Features</h2>
+
+        <div class="feature-boxes">
+
+            <div class="feature">
+                <i>🎓</i>
+                <h3>Student Records</h3>
+                <p>
+                    Store and manage student details securely with easy access.
+                </p>
+            </div>
+
+            <div class="feature">
+                <i>📚</i>
+                <h3>Semester Marks</h3>
+                <p>
+                    Add semester marks dynamically and generate reports instantly.
+                </p>
+            </div>
+
+            <div class="feature">
+                <i>📅</i>
+                <h3>Attendance</h3>
+                <p>
+                    Track daily attendance and monitor student performance.
+                </p>
+            </div>
+
+            <div class="feature">
+                <i>💻</i>
+                <h3>Easy Dashboard</h3>
+                <p>
+                    Attractive and user-friendly dashboard for students and admins.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= INSTRUCTIONS ================= -->
+
+    <section class="instructions">
+
+        <div class="instruction-card">
+
+            <h2>Student Instructions</h2>
+
+            <div class="instruction-list">
+
+                <div class="instruction">✔ Attend classes regularly and be punctual.</div>
+
+                <div class="instruction">✔ Wear proper uniform and ID card.</div>
+
+                <div class="instruction">✔ Respect teachers and fellow students.</div>
+
+                <div class="instruction">✔ Maintain discipline inside the campus.</div>
+
+                <div class="instruction">✔ Avoid mobile phone usage during classes.</div>
+
+                <div class="instruction">✔ Submit assignments on time.</div>
+
+                <div class="instruction">✔ Ragging and fighting are strictly prohibited.</div>
+
+                <div class="instruction">✔ Keep classrooms and campus clean.</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>© 2026 Student Management System | Designed for Students</p>
+
+    </footer>
+
+</body>
+</html>
